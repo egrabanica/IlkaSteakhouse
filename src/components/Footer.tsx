@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="lg:col-span-1">
             <img 
-              src="/alka_steakhouse_logo_white_transparent.png" 
+              src="/logo.webp" 
               alt="Ilka Steakhouse" 
               className="h-16 w-auto mb-4"
             />
