@@ -43,10 +43,10 @@ const Staff = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-6">
-            Meet Our <span className="text-green-600">Team</span>
+            <span className="text-green-600">Takoni Ekipin Tonë</span>
           </h2>
           <p className="text-xl text-stone-600 max-w-2xl mx-auto">
-            The passionate professionals who bring excellence to every aspect of your dining experience
+            Profesionistët plot pasion që sjellin përsosmëri në çdo aspekt të përvojës suaj të ngrënies
           </p>
         </div>
 
