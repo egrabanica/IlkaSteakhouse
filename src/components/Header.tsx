@@ -34,7 +34,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img 
-              src="/logo.png" 
+              src="/logo.webp" 
               alt="Ilka Steakhouse" 
               className="h-12 w-auto transition-all duration-300 hover:scale-105"
             />
