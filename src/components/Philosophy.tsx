@@ -32,7 +32,7 @@ const Philosophy = () => {
                 <p className="text-lg">
                   
                 </p>
-                  Që nga viti 1889, Ilka Steakhouse ka qenë më shumë se thjesht një restorant—jemi kujdestarë të një tradite kulinarie që nderon artin e përgatitjes së mishit të jashtëzakonshëm.
+                  Që nga viti 1989, Ilka Steakhouse ka qenë më shumë se thjesht një restorant—jemi kujdestarë të një tradite kulinarie që nderon artin e përgatitjes së mishit të jashtëzakonshëm.
 
 
                 <p>

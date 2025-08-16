@@ -3,8 +3,8 @@
  *   All rights reserved.
  */
 import React from 'react';
-import VideoCarousel from './VideoCarousel';
-import { defaultHeroVideos } from '../utils/videoConfig';
+
+const backgroundImage = '/images/hero1.png'; // Set your background image path here
 
 const Hero = () => {
   const scrollToReservation = () => {
@@ -15,18 +15,16 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Carousel Background */}
-      <div className="absolute inset-0">
-        <VideoCarousel 
-          videos={defaultHeroVideos} 
-          autoplayInterval={12000}
-          showControls={true}
-          showIndicators={true}
-        />
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/30 to-stone-900/60"></div>
-      </div>
+    <section
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +32,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-stone-100 mb-6 leading-tight">
             Perfeksion,
             <br />
-            <span className="text-green-400">Që nga viti 1889</span>
+            <span className="text-green-400">Që nga viti 1989</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -47,13 +45,6 @@ const Hero = () => {
           >
             Bëj një rezervim
           </button>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-stone-300 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-stone-300 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

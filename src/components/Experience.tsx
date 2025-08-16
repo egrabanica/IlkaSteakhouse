@@ -57,7 +57,7 @@ const Experience = () => {
 
             <div className="mt-8 grid grid-cols-2 gap-6 text-center">
               <div className="bg-stone-800 p-6 rounded-lg">
-                <div className="text-3xl font-serif text-green-400 mb-2">135+</div>
+                <div className="text-3xl font-serif text-green-400 mb-2">35+</div>
                 <div className="text-stone-300 text-sm">Vite Përsosmërie</div>
               </div>
               <div className="bg-stone-800 p-6 rounded-lg">
