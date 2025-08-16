@@ -14,33 +14,20 @@ export interface VideoItem {
 // Default hero videos - Replace these URLs with your actual video files
 export const defaultHeroVideos: VideoItem[] = [
   {
-    id: 'steak-grilling',
-    src: 'https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4',
-    fallbackImage: 'https://images.pexels.com/photos/3195394/pexels-photo-3195394.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    title: 'Perfect Steak Preparation',
-    description: 'Watch our master chefs prepare the perfect steak'
+    id: 'pan-cook',
+    src: '/videos/panCook.mp4',
+    fallbackImage: '/images/pan-cook.jpg', // Update this if you have a local fallback image
+    title: 'Pan Cooking',
+    description: 'Watch our chefs cook with precision in the pan'
   },
   {
-    id: 'restaurant-atmosphere',
-    src: 'https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4',
-    fallbackImage: 'https://images.pexels.com/photos/3209828/pexels-photo-3209828.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    title: 'Elegant Dining Atmosphere',
-    description: 'Experience our sophisticated dining environment'
-  },
-  {
-    id: 'cooking-flames',
-    src: 'https://videos.pexels.com/video-files/2620043/2620043-uhd_2560_1440_25fps.mp4',
-    fallbackImage: 'https://images.pexels.com/photos/2620043/pexels-photo-2620043.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    title: 'Culinary Excellence',
-    description: 'Experience the art of fine cooking'
-  },
-  {
-    id: 'fine-dining',
-    src: 'https://videos.pexels.com/video-files/3298637/3298637-uhd_2560_1440_25fps.mp4',
-    fallbackImage: 'https://images.pexels.com/photos/3298637/pexels-photo-3298637.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    title: 'Fine Dining Experience',
-    description: 'Discover our premium dining atmosphere'
+    id: 'steak-cut',
+    src: '/videos/steakCut.mp4',
+    fallbackImage: '/images/steak-cut.jpg', // Update this if you have a local fallback image
+    title: 'Steak Cutting',
+    description: 'Experience the art of steak cutting'
   }
+  
 ];
 
 // Video optimization settings
@@ -67,10 +54,9 @@ export const getOptimizedVideoUrl = (baseUrl: string, isMobile: boolean = false)
 
 // Helper function to validate video URLs
 export const validateVideoUrl = (url: string): boolean => {
-  try {
-    new URL(url);
-    return url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.mov');
-  } catch {
-    return false;
-  }
+  // Accept both absolute and relative URLs ending with supported extensions
+  return (
+    (url.startsWith('/') || url.startsWith('http')) &&
+    (url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.mov'))
+  );
 };

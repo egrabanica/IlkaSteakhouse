@@ -11,11 +11,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex flex-col items-start">
             <img 
               src="/logo.webp" 
               alt="Ilka Steakhouse" 
-              className="h-16 w-auto mb-4"
+              className="h-20 w-auto transition-all duration-300 hover:scale-105 mb-4 mt-[-12px]"
             />
             <p className="text-stone-400 leading-relaxed mb-4">
              Që nga viti 1889, ne shërbejmë biftekët më të mirë me cilësi të pakompromis dhe shërbim të shkëlqyer.

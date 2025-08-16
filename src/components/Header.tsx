@@ -36,7 +36,7 @@ const Header = () => {
             <img 
               src="/logo.webp" 
               alt="Ilka Steakhouse" 
-              className="h-12 w-auto transition-all duration-300 hover:scale-105"
+              className="h-20 w-auto transition-all duration-300 hover:scale-105 drop-shadow-lg"
             />
           </div>
 

@@ -29,8 +29,9 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
   showControls = true,
   showIndicators = true
 }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+  // Track loading and error per video
+  const [videoLoading, setVideoLoading] = useState<boolean[]>(() => videos.map(() => true));
+  const [videoError, setVideoError] = useState<boolean[]>(() => videos.map(() => false));
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   
   const {
@@ -42,45 +43,40 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
     togglePlayPause
   } = useVideoManager({ videos, autoplayInterval });
 
-  // Initialize video refs array
+  // Initialize video refs and loading/error arrays
   useEffect(() => {
     videoRefs.current = videoRefs.current.slice(0, videos.length);
+    setVideoLoading(videos.map(() => true));
+    setVideoError(videos.map(() => false));
   }, [videos.length]);
 
-  // Handle video loading and playback
+  // Attach event listeners for each video
   useEffect(() => {
-    const currentVideo = videoRefs.current[currentIndex];
-    if (currentVideo) {
-      setIsLoading(true);
-      setHasError(false);
-      
-      const handleCanPlay = () => {
-        setIsLoading(false);
-        if (isPlaying) {
-          currentVideo.play().catch(() => setHasError(true));
-        }
-      };
-
-      const handleError = () => {
-        setIsLoading(false);
-        setHasError(true);
-      };
-
-      currentVideo.addEventListener('canplay', handleCanPlay);
-      currentVideo.addEventListener('error', handleError);
-      
-      // Only load if src is different to avoid unnecessary reloads
-      if (currentVideo.src !== videos[currentIndex].src) {
-        currentVideo.src = videos[currentIndex].src;
-        currentVideo.load();
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        const handleCanPlay = () => {
+          setVideoLoading((prev) => {
+            const updated = [...prev];
+            updated[index] = false;
+            return updated;
+          });
+        };
+        const handleError = () => {
+          setVideoError((prev) => {
+            const updated = [...prev];
+            updated[index] = true;
+            return updated;
+          });
+        };
+        video.addEventListener('canplay', handleCanPlay);
+        video.addEventListener('error', handleError);
+        return () => {
+          video.removeEventListener('canplay', handleCanPlay);
+          video.removeEventListener('error', handleError);
+        };
       }
-
-      return () => {
-        currentVideo.removeEventListener('canplay', handleCanPlay);
-        currentVideo.removeEventListener('error', handleError);
-      };
-    }
-  }, [currentIndex, isPlaying]);
+    });
+  }, [videos.length]);
 
   // Pause other videos when switching
   useEffect(() => {
@@ -106,35 +102,39 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {/* Fallback Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('${video.fallbackImage}')` }}
-          />
-          
           {/* Video Element */}
-          <video
-            ref={(el) => (videoRefs.current[index] = el)}
-            className="absolute inset-0 w-full h-full object-cover"
-            src={video.src}
-            muted
-            loop
-            playsInline
-            preload={index === currentIndex ? "auto" : "none"}
-            poster={video.fallbackImage}
-            style={{ 
-              display: hasError && index === currentIndex ? 'none' : 'block' 
-            }}
-            crossOrigin="anonymous"
-          >
-            <source src={video.src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {!videoError[index] && (
+            <video
+              ref={(el) => (videoRefs.current[index] = el)}
+              className="absolute inset-0 w-full h-full object-cover"
+              src={video.src}
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster={video.fallbackImage}
+              style={{ 
+                display: videoLoading[index] ? 'none' : 'block' 
+              }}
+              crossOrigin="anonymous"
+            >
+              <source src={video.src} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
+          {/* Fallback Image (only show if error) */}
+          {videoError[index] && (
+            <img
+              src={video.fallbackImage}
+              alt={video.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          )}
         </div>
       ))}
 
       {/* Loading Indicator */}
-      {isLoading && (
+      {videoLoading[currentIndex] && (
         <div className="absolute inset-0 flex items-center justify-center bg-stone-900/20">
           <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
         </div>
