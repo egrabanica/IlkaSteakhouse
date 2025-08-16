@@ -8,28 +8,28 @@ import { ChevronRight } from 'lucide-react';
 const FeaturedCuts = () => {
 const cuts = [
   {
-    name: "Tomahawk Ribeye",
-    description: "Një 'ribeye' spektakolar 32oz me kockë, i vjetëruar për 28 ditë. Është pjata jonë yll me marmorim të pabesueshëm dhe shije të pasur gjalpi.",
-    image: "https://images.pexels.com/photos/3535383/pexels-photo-3535383.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-    price: "$89"
+    name: "Pjatë pule",
+    description: "Pjatë pule e pjekur me lëkurë të artë, e shoqëruar me një sallatë të freskët me lakër të kuqe, oriz, patate të skuqura dhe një gotë salcë. Një shujtë e shijshme dhe e ekuilibruar, perfekte për t'u shijuar në një ambient të ngrohtë restoranti.",
+    image: "/images/Pule.png",
+    price: "$8"
   },
   {
-    name: "Filet Mignon",
-    description: "Pjesa më e butë e mishit, nga filetoja më e mirë e viçit. Shumë i butë dhe i shijshëm, shërbehet me gjalpin tonë të veçantë me barishte.",
-    image: "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-    price: "$52"
+    name: "Kombinimi i Mishit për 3 Persona",
+    description: "Në Steak House te Ilka, Kombinimi i Mishi për 3 persona sjell në tavolinën tuaj një simfoni shijesh.Mish i zgjedhur, i gatuar me mjeshtëri dhe i servirur bujarisht, ideal për t'u ndarë me familjen ose miqtë.Aroma e saj të fton, shija të mbetet gjatë!",
+    image: "images/Kombinim3.png",
+    price: "$50"
   },
   {
-    name: "Prime Ribeye",
-    description: "Një prerje klasike 16oz me marmorim të shkëlqyer. I pjekur në skarë në mënyrë perfekte dhe i përfunduar me rozmarinë dhe hudhra për një përvojë të paharrueshme.",
-    image: "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-    price: "$48"
+    name: "Biftek viçi",
+    description: "Një biftek perfekt i përgatitur me kujdes dhe pasion nga Steak House Ilka!  Kur cilësia dhe shija janë prioritet, gjithçka tjetër është thjesht ekstra. Erëza të freskëta, mish i përzgjedhur dhe një përvojë që do ta mbani mend. ",
+    image: "images/biftek.png",
+    price: "$15"
   },
   {
-    name: "Dry-Aged Strip",
-    description: "Pjesa jonë e veçantë 'New York strip' 14oz, e vjetëruar për 21 ditë. Shije e fortë me një balancë të përsosur butësie dhe teksture.",
-    image: "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-    price: "$44"
+    name: "Mushkëritë e viçit të fërguara",
+    description: "Mushkëritë e viçit të fërguara 250gr janë krijuar për të kënaqur dashamirësit e kuzhinës tradicionale me një prekje të sofistikuar. ",
+    image: "images/mushkeri.png",
+    price: "$12"
   }
 ];
 
@@ -106,3 +106,10 @@ const cuts = [
 };
 
 export default FeaturedCuts;
+
+
+
+
+
+
+

@@ -13,7 +13,7 @@ const Philosophy = () => {
           <div className="order-2 lg:order-1">
             <div className="relative overflow-hidden rounded-lg shadow-2xl">
               <img 
-                src="https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                src="/images/philosophy.png"
                 alt="Premium beef cuts"
                 className="w-full h-96 object-cover transition-transform duration-700 hover:scale-105"
               />
