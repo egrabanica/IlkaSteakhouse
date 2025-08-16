@@ -77,17 +77,14 @@ const Footer = () => {
             <h3 className="text-lg font-serif text-stone-100 mb-4">Orari</h3>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-stone-400">E hënë - E enjte:</span>
-                <span className="text-stone-200">17:00 - 22:00</span>
+                <span className="text-stone-400">E hënë - E premte:</span>
+                <span className="text-stone-200">11:00 - 2:00</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-stone-400">E premte - E shtunë: </span>
-                <span className="text-stone-200">17:00 - 23:00</span>
+                <span className="text-stone-400">E shtunë - E dielë: </span>
+                <span className="text-stone-200">11:00 - 3:00</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-stone-400">E dielë</span>
-                <span className="text-stone-200">16:00 - 21:00</span>
-              </div>
+              
             </div>
             
             <div className="mt-4 p-3 bg-stone-700 rounded-lg">
